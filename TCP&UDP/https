@@ -1,0 +1,13 @@
+#!/bin/bash
+
+time1=$(date +%s%N)
+expect <<-EOF
+set timeout 1
+spawn openssl s_client -connect 10.5.3.2:25555
+expect "Extended master secret: no"
+send "GET / HTTP/1.1\r\n"
+expect "aloha"
+EOF
+time2=$(date +%s%N)
+time3=$(( ($time2-$time1)/1250000 ))
+echo $time3
