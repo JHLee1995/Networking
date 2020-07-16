@@ -1,0 +1,13 @@
+#!/usr/bin/expect
+set timeout 5
+spawn nc berlioz.cs.unh.edu 25
+send "helo hello\r"
+send "mail from: <jl1425@wildcats.unh.edu>\r"
+send "rcpt to: <jiahaoli1425@gmail.com>\r"
+send "data\r"
+send "from: jl1425@wildcats.unh.edu"
+send "to: jl1425@wildcats.unh.edu"
+send "Subject: SMTP test\r"
+send "test\r"
+send ".\r"
+expect eof
