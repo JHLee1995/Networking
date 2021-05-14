@@ -6,7 +6,6 @@ public class TCPClient {
     Socket socket;
     PrintWriter writer;
     
-
     private void request() {
         System.out.println("Connecting......");
 
@@ -17,12 +16,10 @@ public class TCPClient {
 
             Scanner inputMsg = new Scanner(socket.getInputStream());
             System.out.println(inputMsg.nextLine());
-            System.out.println("Client: ");
-            
-            Scanner _inputMsg = new Scanner(System.in);
+            Scanner receivedMsg = new Scanner(System.in);
 
             while (true) {
-                String data = _inputMsg.nextLine();
+                String data = receivedMsg.nextLine();
                 writer.println(data);
                 writer.flush();
 
@@ -31,7 +28,7 @@ public class TCPClient {
                 System.out.println("Client: ");
 ;           }           
         } catch (Exception e) {
-            e.printStackTrace();
+            System.out.println("Disconnected !");
         }
     }
 
