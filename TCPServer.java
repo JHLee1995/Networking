@@ -21,21 +21,21 @@ public class TCPServer {
                 writer.flush();
 
                 Scanner inputMsg = new Scanner(System.in);
-                Scanner _inputMsg = new Scanner(socket.getInputStream());
+                Scanner receivedMsg = new Scanner(socket.getInputStream());
 
                 while (true) {
-                    String data = _inputMsg.nextLine();
-                    System.out.println("Server: " + data);
+                    String data = receivedMsg.nextLine();
+                    System.out.println("Client: " + data);
 
-                    System.out.println("Client: ");
+                    System.out.println("Server : ");
                     String _data = inputMsg.nextLine();
 
-                writer.println(_data);
+                    writer.println(_data);
                     writer.flush();
                 }
             }
         } catch (Exception e) {
-            e.printStackTrace();
+            System.out.println("Disconnected !");
         }
     }
 
