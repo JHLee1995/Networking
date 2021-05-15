@@ -24,7 +24,7 @@ public class UDPServer {
                 socket.receive(packet);
                 message = new String(packet.getData()).trim();
     
-                System.out.println("Receive from: " + packet.getAddress().getHostAddress() + message);
+                System.out.println("Receive from " + packet.getAddress().getHostAddress() + ": "+ message);
             }
         } catch (Exception e) {
             System.out.println("Error !");
